@@ -11,13 +11,14 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // midleware
-const setHeaders = require('server/midleware/setHeaders')
+const setHeaders = require('./server/midleware/setHeaders')
+const webParsed = require('./server/midleware/webParsed')
 
 // Routes
-const firstRoute = require('./server/routes/firstRoute/')
+const vehiculoRobado = require('./server/routes/vehiculoRobado/')
 
    
-app.use('/', setHeaders, firstRoute);
+app.use('/', setHeaders, webParsed, vehiculoRobado);
 
 
 app.listen(PORT)
